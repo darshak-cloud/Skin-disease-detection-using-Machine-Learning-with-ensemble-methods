@@ -29,8 +29,7 @@ Key Features
 
 
 Model Training
-The ensemble learning approach includes training various classifiers to achieve an optimal accuracy of 99-100%. The models are trained in a Jupyter Notebook and saved for deployment in the Flask app.
-
+The ensemble learning approach includes training various classifiers to achieve an optimal accuracy of 99-100%.
 
 Web Application
 The web application is built using Flask and allows users to:
@@ -60,7 +59,8 @@ File Structure
 │   ├── data_preparation.py  # Data preparation script
 │   ├── feature_extraction.py# HOG feature extraction
 │   ├── model_training.py    # Model training script
-│   └── model_evaluation.py  # Model evaluation script
+│   └── model_evaluation.py  # Model evaluatio[Skin Disease Detection Using Machine Learning and Ensemble Methods.docx](https://github.com/user-attachments/files/17381767/Skin.Disease.Detection.Using.Machine.Learning.and.Ensemble.Methods.docx)
+n script
 └── uploads/                 # Folder for storing uploaded images
 
 
