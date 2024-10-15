@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Disease Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Optional: Add Google Fonts for enhanced typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Skin Disease Detection</h1>
+                <p>Accurate and fast detection of skin diseases using advanced machine learning models.</p>
+                <!-- Optional: Add a call-to-action button -->
+                <a href="#upload-section" class="cta-button">Get Started</a>
+            </div>
+            <div class="hero-image">
+                <img src="{{ url_for('static', filename='hero-image.jpeg') }}" alt="Skin Disease Detection Illustration">
+            </div>
+        </section>
+
+        <!-- Form for Image Upload -->
+        <section id="upload-section">
+            <h2>Upload an Image</h2>
+            <form id="upload-form" action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" accept="image/*" required>
+                <button type="submit">Upload and Predict</button>
+            </form>
+        </section>
+
+        <!-- Webcam Capture Section -->
+        <section id="webcam-section">
+            <h2>Or Capture from Webcam</h2>
+            <div id="webcam-container">
+                <button onclick="startWebcam()">Start Webcam</button>
+                <button onclick="captureImage()">Capture Image</button>
+                <video id="webcam" autoplay></video>
+                <canvas id="canvas" style="display: none;"></canvas>
+            </div>
+
+            <!-- Hidden input for webcam image data -->
+            <form id="webcam-form" action="{{ url_for('predict') }}" method="POST">
+                <input type="hidden" name="image_data" id="image_data">
+            </form>
+        </section>
+
+        <!-- Information About Skin Diseases -->
+        <section id="info-section">
+            <h2>About Skin Diseases</h2>
+            <p>Skin diseases can affect anyone, regardless of age or gender. Some common skin conditions include eczema, psoriasis, and acne. Early detection and proper treatment are crucial in managing these conditions.</p>
+            
+            <div class="disease-gallery">
+                <div class="disease-item">
+                    <img src="{{ url_for('static', filename='eczema.jpeg') }}" alt="Eczema">
+                    <h3>Eczema</h3>
+                    <p>Eczema causes the skin to become itchy, red, and inflamed. It is most common in children but can occur at any age.</p>
+                </div>
+                <div class="disease-item">
+                    <img src="{{ url_for('static', filename='psoriasis.jpeg') }}" alt="Psoriasis">
+                    <h3>Psoriasis</h3>
+                    <p>Psoriasis speeds up the life cycle of skin cells, causing them to build up rapidly on the skin's surface.</p>
+                </div>
+                <div class="disease-item">
+                    <img src="{{ url_for('static', filename='acne.jpeg') }}" alt="Acne">
+                    <h3>Acne</h3>
+                    <p>Acne occurs when hair follicles become clogged with oil and dead skin cells, causing pimples.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Skin Disease Detection. All rights reserved.</p>
+        <a href="#">About</a> | <a href="#">Contact</a> | <a href="#">Privacy Policy</a>
+    </footer>
+
+    <!-- JavaScript for Webcam -->
+    <script src="{{ url_for('static', filename='webcam.js') }}"></script>
+</body>
+</html>

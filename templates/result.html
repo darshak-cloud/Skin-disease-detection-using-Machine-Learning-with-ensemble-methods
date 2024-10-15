@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Optional: Add Google Fonts for consistency -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Result Header Section -->
+        <section id="result-header">
+            <h1>Prediction Result</h1>
+            <p>Your analysis is complete. Here are the details:</p>
+        </section>
+
+        <!-- Display the predicted disease and accuracy -->
+        <section id="prediction-section">
+            <p>The image is predicted to show: <strong>{{ prediction if prediction else 'No prediction available' }}</strong></p>
+            <p>Prediction accuracy: <strong>{{ accuracy if accuracy else 'N/A' }}%</strong></p>
+        </section>
+
+        <!-- Display the uploaded or captured image -->
+        <section id="image-display">
+            {% if image_file %}
+                <img src="{{ url_for('uploaded_file', filename=image_file) }}" alt="Predicted image showing {{ prediction }}">
+            {% else %}
+                <p>No image available.</p>
+            {% endif %}
+        </section>
+
+        <!-- Display the accuracies of all models -->
+        <section id="model-accuracies">
+            <h2>Model Accuracies for the Uploaded Image</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Model Name</th>
+                        <th>Accuracy (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for model_name, model_accuracy in accuracies.items() %}
+                    <tr>
+                        <td>{{ model_name }}</td>
+                        <td>{{ model_accuracy }}%</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Button to go back to home page -->
+        <section id="back-button-section">
+            <a href="{{ url_for('index') }}" class="cta-button">Back to Home</a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Skin Disease Detection. All rights reserved.</p>
+        <a href="#">About</a> | <a href="#">Contact</a> | <a href="#">Privacy Policy</a>
+    </footer>
+</body>
+</html>
