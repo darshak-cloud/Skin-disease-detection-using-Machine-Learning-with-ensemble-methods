@@ -43,7 +43,7 @@ To run this project locally:
 2.	Install the required dependencies from requirements.txt: pip install -r requirements.txt
 3.	Run the Flask application: python app.py
 
-File Structure (If the file structure is not clearly visible or not in proper order use RAW to see it)
+File Structure (If the file structure is not clearly visible or not in proper order use RAW to see it or you can see it with my repository which I already uploaded at starting folder name readmi)
 │folder name
 ├── app/
 │   └── app.py               # Flask web application
